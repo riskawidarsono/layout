@@ -36,6 +36,51 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 Container(
                   height: 160,
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        width: 150,
+                        margin: EdgeInsets.only(bottom: 10),
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage('assests/images/poeple.jpg'),
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      Flexible(
+                        child: Container(
+                          padding: EdgeInsets.only(left: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Riska Widarsono',
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                'Riska Widarsono',
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.grey[350],
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 Flexible(
                   child: Container(
