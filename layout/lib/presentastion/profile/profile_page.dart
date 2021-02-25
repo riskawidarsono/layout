@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:layout/widget/benner.dart';
 import 'package:layout/widget/chartinformation.dart';
+import 'package:layout/widget/titleandsubtitle.dart';
+
+import '../../widget/discoverlistitem.dart';
 
 class ProfilePage extends StatefulWidget {
   ProfilePage({Key key}) : super(key: key);
@@ -12,53 +16,56 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[400],
+      backgroundColor: Colors.green[50],
       body: SafeArea(
-        child: Container(
+        child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              TitleAndSubtitle(),
-              Container(
-                height: 300,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      color: Colors.pink,
-                      child: Text('ini list'),
-                    );
-                  },
-                ),
+              ChartInformation(),
+              SizedBox(
+                height: 20,
               ),
+              Container(
+                margin: EdgeInsets.only(left: 20),
+                child: natureDiscoveryData(),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                child: Benner(),
+              ),
+              SizedBox(
+                height: 20,
+              )
             ],
           ),
         ),
       ),
     );
   }
-}
 
-class TitleAndSubtitle extends StatelessWidget {
-  const TitleAndSubtitle({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Notable Work',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        Text(
-          'Base on the populerity',
-          style: TextStyle(
-              fontSize: 10, fontWeight: FontWeight.bold, color: Colors.grey),
-        ),
-      ],
+  Widget natureDiscoveryData() {
+    return Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          TitleAndSubtitle(
+            title: "Notable Works",
+            subTitle: "Base on the popularty of articles",
+          ),
+          Container(
+            height: 230,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return DiscoverListItime();
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
