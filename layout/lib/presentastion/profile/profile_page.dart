@@ -15,8 +15,10 @@ class _ProfilePageState extends State<ProfilePage> {
       body: SafeArea(
         child: Container(
           child: Container(
+            width: double.infinity,
             height: 250,
             margin: EdgeInsets.all(20),
+            padding: EdgeInsets.all(15),
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -28,6 +30,53 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: 160,
+                ),
+                Flexible(
+                  child: Container(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(
+                          flex: 1,
+                          child: OutlineButton(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            onPressed: () {},
+                            child: Text(
+                              "Chat",
+                              style: TextStyle(color: Colors.red),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: RaisedButton(
+                            color: Colors.red,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            onPressed: () {},
+                            child: Text(
+                              "Follow",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
